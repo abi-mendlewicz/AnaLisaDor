@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="@abi_mendlewicz">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <header></header>
+  <main class="m-8">
+    <label for="text" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white">Analizador de textos</label>
+    <textarea
+      id="text"
+      rows="20"
+      class="block mb-2 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Escribe o pega tu texto aquí para analizarlo."
+      autofocus>
+    </textarea>
+    <button
+      id="submitButton"
+      class="px-4 bg-black border-1 border-black rounded-lg text-white"
+      type="button"
+    >
+      Analizar ahora
+    </button>
+    <button
+      id="clearTextButton"
+      class="px-4 border-1 rounded-lg"
+      type="button"
+    >
+      Borrar
+    </button>
+    <div>
+      <h2 class="mt-4 text-xl">Datos generales</h2>
+      <p>Total frases: <span id="totalFrases" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>Total OL15: <span id="totalOl15" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>Total palabra: <span id="totalPalabras" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>Total PL>6: <span id="totalPl6" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>Total PocoFreq (≥8): <span id="totalPf" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>Total letras: <span id="totalLetras" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+    </div>
+    <div>
+      <h2 class="mt-4 text-xl">Métricas</h2>
+      <p>LMO: <span id="lmo" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>%OL15: <span id="ol15" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>LMP: <span id="lmp" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>%PL>6: <span id="pl6" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+      <p>%PocoFreq: <span id="pf" class="ms-1 px-1 bg-blue-300 font-bold"></span></p>
+    </div>
+    <div id="detail">
+      <h2 class="mt-4 text-xl">Detalle</h2>
+    </div>
+  </main>
+  <footer></footer>
+  <script type="module" src="./anaLisaDor.js"></script>
+</body>
+</html>
