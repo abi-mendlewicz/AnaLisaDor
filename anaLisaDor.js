@@ -18,6 +18,7 @@ const pf = document.getElementById('pf')
 const detail = document.getElementById('detail')
 
 submitButton.addEventListener('click', () => {
+  detail.innerHTML = '<h2 class="mt-4 text-xl">Detalle</h2>'
   const texto = textContainer.value
   const textoDesabreviado = texto.replace(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'), match => match.replace('.', ''))
   console.log('texto:', texto)
@@ -127,4 +128,5 @@ clearTextButton.addEventListener('click', () => {
   lmp.innerText = ''
   pl6.innerText = ''
   pf.innerText = ''
+  detail.innerHTML = '<h2 class="mt-4 text-xl">Detalle</h2>'
 })
