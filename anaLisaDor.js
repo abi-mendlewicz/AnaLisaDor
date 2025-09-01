@@ -109,11 +109,11 @@ submitButton.addEventListener('click', () => {
   // Render métricas
   const decimalOpts = {
     style: 'decimal',
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 3,
   }
   const percentOpts = {
     style: 'percent',
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 3,
   }
 
   const metrics = {
@@ -143,10 +143,10 @@ submitButton.addEventListener('click', () => {
 
   // Normalización
   const lmoNormalized = Math.min(1, metrics.lmo / 20)
-  const ol15Normalized = metrics.ol15 / 100
+  const ol15Normalized = metrics.ol15
   const lmpNormalized = Math.min(1, metrics.lmp / 8)
-  const pl78Normalized = metrics.pl78 / 100
-  const plRareNormalized = metrics.plRare / 100
+  const pl78Normalized = metrics.pl78
+  const plRareNormalized = metrics.plRare
 
   // Render métricas normalizadas
   lmoN.innerText = lmoNormalized.toLocaleString('es', decimalOpts)
@@ -165,11 +165,7 @@ submitButton.addEventListener('click', () => {
 
   const tope = 3.6
 
-  suma.innerText = `${weights.lmo} * ${lmoNormalized} +
-    ${weights.ol15} * ${ol15Normalized} +
-    ${weights.lmp} * ${lmpNormalized} +
-    ${weights.pl78} * ${pl78Normalized} +
-    ${weights.plRare} * ${plRareNormalized} = ${sum.toLocaleString('es', decimalOpts)}`
+  suma.innerText = `${weights.lmo} * ${lmoNormalized} + ${weights.ol15} * ${ol15Normalized} + ${weights.lmp} * ${lmpNormalized} + ${weights.pl78} * ${pl78Normalized} + ${weights.plRare} * ${plRareNormalized} = ${sum.toLocaleString('es', decimalOpts)}`
   c.innerText = tope.toLocaleString('es', decimalOpts)
 
   const res = 100 * Math.min(1, (tope > 0 ? (sum / tope) : 0))
