@@ -150,10 +150,10 @@ submitButton.addEventListener('click', () => {
 
   // Render métricas normalizadas
   lmoN.innerText = lmoNormalized.toLocaleString('es', decimalOpts)
-  ol15N.innerText = ol15Normalized.toLocaleString('es', percentOpts)
+  ol15N.innerText = ol15Normalized.toLocaleString('es', decimalOpts)
   lmpN.innerText = lmpNormalized.toLocaleString('es', decimalOpts)
-  pl6N.innerText = pl78Normalized.toLocaleString('es', percentOpts)
-  pfN.innerText = plRareNormalized.toLocaleString('es', percentOpts)
+  pl6N.innerText = pl78Normalized.toLocaleString('es', decimalOpts)
+  pfN.innerText = plRareNormalized.toLocaleString('es', decimalOpts)
 
   // Suma ponderada e IDL
   const sum =
@@ -165,7 +165,7 @@ submitButton.addEventListener('click', () => {
 
   const tope = 3.6
 
-  suma.innerText = `${weights.lmo} * ${lmoNormalized} + ${weights.ol15} * ${ol15Normalized} + ${weights.lmp} * ${lmpNormalized} + ${weights.pl78} * ${pl78Normalized} + ${weights.plRare} * ${plRareNormalized} = ${sum.toLocaleString('es', decimalOpts)}`
+  suma.innerText = `${weights.lmo.toLocaleString('es', decimalOpts)} * ${lmoNormalized.toLocaleString('es', decimalOpts)} + ${weights.ol15.toLocaleString('es', decimalOpts)} * ${ol15Normalized.toLocaleString('es', decimalOpts)} + ${weights.lmp.toLocaleString('es', decimalOpts)} * ${lmpNormalized.toLocaleString('es', decimalOpts)} + ${weights.pl78.toLocaleString('es', decimalOpts)} * ${pl78Normalized.toLocaleString('es', decimalOpts)} + ${weights.plRare.toLocaleString('es', decimalOpts)} * ${plRareNormalized.toLocaleString('es', decimalOpts)} = ${sum.toLocaleString('es', decimalOpts)}`
   c.innerText = tope.toLocaleString('es', decimalOpts)
 
   const res = 100 * Math.min(1, (tope > 0 ? (sum / tope) : 0))
