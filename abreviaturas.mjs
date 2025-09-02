@@ -43,6 +43,7 @@ export const ABREVIATURAS = [
   'p.ej.',
   'p ej.',
   'q.e.p.d.',
+  's.',
   's/f.',
   's/n.',
   'a. C.',

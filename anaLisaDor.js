@@ -32,7 +32,7 @@ submitButton.addEventListener('click', () => {
   console.log('texto:', texto)
   console.log(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'))
   console.log('textoDesabreviado:', textoDesabreviado)
-  const reFrase = /[.!?]\s+|\s{2,}|\n|\r\n|\\x0C/
+  const reFrase = /[.!?]\s+/
   const frases = textoDesabreviado.split(reFrase).filter(frase => frase)
   let totalFrases = 0
   let totalPalabras = 0
@@ -49,7 +49,8 @@ submitButton.addEventListener('click', () => {
     palabras.forEach(palabra => {
       const palabraLimpia = palabra.replace(/[^a-zñáéíóúü]/gi, '')
       
-      if (palabraLimpia) {
+      // Los números romanos se consideran números
+      if (palabraLimpia && !palabraLimpia.match(/^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/)) {
         totalPalabras ++
         totalLetras += palabraLimpia.length
 
