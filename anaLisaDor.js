@@ -28,7 +28,7 @@ const detail = document.getElementById('detail')
 submitButton.addEventListener('click', () => {
   detail.innerHTML = '<h2 class="mt-4 text-xl">Detalle</h2>'
   const texto = textContainer.value
-  const textoDesabreviado = texto.replace(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'), match => match.replace('.', ''))
+  const textoDesabreviado = texto.replace(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'), match => match.replace(/\./g, ''))
   console.log('texto:', texto)
   console.log(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'))
   console.log('textoDesabreviado:', textoDesabreviado)
