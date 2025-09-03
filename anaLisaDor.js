@@ -28,8 +28,10 @@ const detail = document.getElementById('detail')
 submitButton.addEventListener('click', () => {
   detail.innerHTML = '<h2 class="mt-4 text-xl">Detalle</h2>'
   const texto = textContainer.value
-  const textoDesabreviado = texto.replace(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'), match => match.replace(/\./g, ''))
   console.log('texto:', texto)
+  const textoDesabreviadoBordeFrase = texto.replace(new RegExp(`${ABREVIATURAS.map(abv => `(${RegExp.escape(abv.slice(0, -1))})${/(?=\.\s+[A-Z]|\.\s+[^\w][A-Z])/.source}`).join('|')}`, 'g'), match => {console.log('match:', match); return match.replace(/\./g, '')})
+  console.log('textoDesabreviadoBordeFrase:', textoDesabreviadoBordeFrase)
+  const textoDesabreviado = textoDesabreviadoBordeFrase.replace(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'), match => match.replace(/\./g, ''))
   console.log(new RegExp(`${ABREVIATURAS.map(abv => RegExp.escape(abv)).join('|')}`, 'gi'))
   console.log('textoDesabreviado:', textoDesabreviado)
   const reFrase = /[.!?]\s+/
